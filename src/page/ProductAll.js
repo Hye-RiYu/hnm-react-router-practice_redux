@@ -5,7 +5,8 @@ import { useSearchParams } from 'react-router-dom';
 
 const ProductAll = () => {
   const [ productList, setProductList ] = useState([]);
-  const [ query, setQuery ] = useSearchParams()
+  const [ query, setQuery ] = useSearchParams();
+
   const getProducts = async () => {
     let searchQuery = query.get('q') || "";
     console.log('쿼리값은?', searchQuery);
@@ -23,9 +24,9 @@ const ProductAll = () => {
     <div>
       <Container>
         <Row>
-          {productList.map((menu) => (
-            <Col lg={3}>
-              <ProductCard item={menu} />
+          {productList.map((item) => (
+            <Col lg={3} key={item.id}>
+              <ProductCard item={item} />
             </Col>
           ))}
         </Row>

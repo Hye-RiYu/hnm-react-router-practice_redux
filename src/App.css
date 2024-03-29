@@ -1,86 +1,166 @@
-
-
-.login-button {
-  display: flex;
-  justify-content: flex-end;
-  margin: 20px;
-  cursor: pointer;
+body{
+  font-family: sans-serif;
+}
+.nav-header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  
 }
 
-.nav-section {
+.nav-header * {
+  margin-right: 10px;
+  margin-top: 20px;
+}
+.menu{
+  display: flex;
+  list-style-type: none;
+  padding: 20px;
+}
+.menu li a{
+  text-decoration: none;
+  color:black;
+  margin-left:20px;
+}
+
+.nav-logo{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.nav-menu-area{
   display: flex;
   justify-content: center;
 }
 
-.menu-list {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  padding-left: 0px;
+.burger-menu{
+  margin-left: 20px;
 }
 
-.menu-list li {
-  padding: 10px;
-}
 
-.menu-area {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.search-bar {
+.search-box{
+  border-bottom: 1px solid gray;
   position: absolute;
   right: 20px;
-  top: 35%;
+  padding: 5px;
+}
+.search-box input{
+  border:none;
+  margin-left:5px;
+}
+.search-box input:focus {
+  outline:none
 }
 
-.search-bar input {
-  margin-right: 10px;
-  border-style: none;
-  border-bottom: 1px solid gray;
+.card{
+  border:none !important;
+  margin-bottom: 10px;
 }
 
-/* .product-card {
-  margin: 0;
-} */
-
-.product-img {
-  width: 261px;
-  margin: 5px 0;
+.login-form{
+  width:40em;
 }
-
-.product-img:hover {
-  width: 271px;
-}
-
-.productdetail-img {
+.login-area{
   display: flex;
-  justify-content: end;
+  justify-content: center;
 }
 
-.productdetail-title {
-  font-size: 1.5em;
+.product-detail-img{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-detail-img img{
+  width: 100%;
+}
+
+.product-detail-title {
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-.productdetail-price {
-  font-size: 1.1em;
-  margin-bottom: 6px;
+.product-detail-price{
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-.productdetail-choice {
-  font-size: small;
+.product-detail-choice {
   color: gray;
 }
 
 #dropdown-basic {
-  margin: 16px 0 28px;
   border: 1px solid gray;
 }
 
-.productdetail-button {
-  width: 380px;
+.drop-down {
+  margin-top:20px;
 }
+
+
+.add-button{
+  margin-top:20px;
+  width: 100%;
+}
+
+.card:hover{
+  transform: scale(1.1);
+  z-index: 1;
+}
+.hide{
+  visibility:hidden
+}
+
+@media screen and (max-width: 63rem) {
+  .hide {
+    visibility:visible;
+  }
+  .menu {
+    display: none;
+  }
+  .search-box{
+    display: none;
+  }
+}
+
+.side-menu {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: gray;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index:2
+}
+.side-menu-list button {
+  margin: 5px;
+  border: none;
+  background: none;
+  width: 120px;
+}
+
+.side-menu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  border: none;
+  background: none;
+}
+
+.side-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu-list button:hover {
+  background-color: beige;
+  border-radius: 3px;
+} 
