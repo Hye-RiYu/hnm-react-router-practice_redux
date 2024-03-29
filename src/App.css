@@ -54,3 +54,33 @@
 .product-img:hover {
   width: 271px;
 }
+
+.productdetail-img {
+  display: flex;
+  justify-content: end;
+}
+
+.productdetail-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.productdetail-price {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+
+.productdetail-choice {
+  font-size: small;
+  color: gray;
+}
+
+#dropdown-basic {
+  margin: 16px 0 28px;
+  border: 1px solid gray;
+}
+
+.productdetail-button {
+  width: 380px;
+}
