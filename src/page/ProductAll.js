@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ProductCard from '../component/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
+import { productAction } from '../redux/actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const ProductAll = () => {
-  const [ productList, setProductList ] = useState([]);
+  const productList = useSelector((state) => state.product.productList);
   const [ query, setQuery ] = useSearchParams();
+  const dispatch = useDispatch();
 
-  const getProducts = async () => {
+  const getProducts = () => {
     let searchQuery = query.get('q') || "";
     console.log('쿼리값은?', searchQuery);
-    let url = `https://my-json-server.typicode.com/Hye-RiYu/hnm-react-router-practice/products?q=${searchQuery}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductList(data);
+    dispatch(productAction.getProducts(searchQuery));
   };
 
   useEffect(() => {
