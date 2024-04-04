@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Dropdown, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { productAction } from '../redux/actions/productAction';
+// import { productAction } from '../redux/actions/productAction';
+import { fetchfetchProductsDetail } from '../redux/reducers/productSlice';
 
 const ProductDetail = () => {
   let { id}  = useParams();
@@ -11,7 +12,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(false);
   const getProductDetail = async () => {
     setLoading(true);
-    dispatch(productAction.getProductDetail(id));
+    dispatch(fetchfetchProductsDetail(id));
     setLoading(false);
   };
 

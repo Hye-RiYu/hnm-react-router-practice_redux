@@ -17,14 +17,21 @@ export const fetchProducts = createAsyncThunk('product/fetchAll', async (searchQ
   }
 });
 
+export const fetchfetchProductsDetail = createAsyncThunk('product/fetchDetail', async (id, thunkApi) => {
+  try {
+    let url = `https://my-json-server.typicode.com/Hye-RiYu/hnm-react-router-practice/products/${id}`;
+    let response = await fetch(url);
+    return await response.json();
+  }catch(error) {
+    thunkApi.rejectWithValue(error.message);
+  }
+});
+
+
 const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {
-    getSingleproduct(state,action) {
-      state.selectedItem = action.payload.data;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
       state.isLoading = true;
@@ -34,6 +41,17 @@ const productSlice = createSlice({
       state.productList = action.payload;
     })
     .addCase(fetchProducts.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    })
+    .addCase(fetchfetchProductsDetail.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(fetchfetchProductsDetail.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.selectedItem = action.payload;
+    })
+    .addCase(fetchfetchProductsDetail.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     })
